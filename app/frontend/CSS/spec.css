@@ -1,0 +1,268 @@
+/*============================================================*/
+/*                     DESIGN TOKENS                          */
+/*============================================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap');
+
+:root {
+
+  /* ================== Brand Colors ================== */
+  --color-brand-600: #4f46e5;
+  --color-brand-900: #312e81;
+  --color-brand-100: #e0e7ff;
+
+  /* ================== Accent ================== */
+  --color-orange-600: #ea580c;
+
+  /* ================== Neutrals ================== */
+  --color-bg-page: #f8fafc;            /* bg-slate-50 */
+  --color-surface: #ffffff;
+  --color-surface-dark: #0f172a;       /* bg-slate-900 */
+  --color-border-light: #e5e7eb;
+  --color-border-default: #e5e7eb;
+  --color-divider: #e5e7eb;
+  --color-track: #e5e7eb;
+
+  /* ================== Text ================== */
+  --color-text-primary: #312e81;
+  --color-text-secondary: #64748b;
+  --color-text-muted-dark: #cbd5e1;
+  --color-text-white: #ffffff;
+
+  /* ================== Typography ================== */
+  --font-family-base: 'Plus Jakarta Sans', sans-serif;
+
+  /* ================== Radius ================== */
+  --radius-full: 9999px;
+  --radius-xl: 12px;      /* rounded-xl */
+  --radius-2xl: 16px;     /* rounded-2xl */
+  --radius-3xl: 24px;     /* rounded-3xl */
+  --radius-subject: 14px; /* subject-card exact */
+
+  /* ================== Shadows ================== */
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+
+  /* ================== Motion ================== */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease-out;
+}
+
+
+/*============================================================*/
+/*                     BASE STYLES                            */
+/*============================================================*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-base);
+  background-color: var(--color-bg-page);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+
+/*============================================================*/
+/*                  BRAND COMPONENTS                          */
+/*============================================================*/
+
+.brand-icon {
+  background: var(--color-brand-600);
+  color: var(--color-text-white);
+  border-radius: var(--radius-2xl);
+}
+
+.brand-badge {
+  background: var(--color-brand-100);
+  color: var(--color-brand-600);
+  border-radius: var(--radius-full);
+  font-weight: 700;
+}
+
+
+/*============================================================*/
+/*                  COMPONENT LIBRARY                         */
+/*============================================================*/
+
+/* ================== Layout Surfaces ================== */
+
+.surface-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-3xl);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border-light);
+}
+
+.surface-sidebar {
+  background: var(--color-surface-dark);
+  color: var(--color-text-white);
+  border-radius: var(--radius-3xl);
+}
+
+
+/* ================== Step System ================== */
+
+.step-content {
+  display: none;
+}
+
+.step-content.active {
+  display: block;
+  animation: fadeIn var(--transition-normal);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.step-dot {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-divider);
+  font-weight: bold;
+}
+
+.step-dot.active {
+  background: var(--color-brand-600);
+  color: var(--color-text-white);
+}
+
+
+/* ================== Buttons ================== */
+
+.btn-primary {
+  background: var(--color-brand-600);
+  color: var(--color-text-white);
+  border-radius: var(--radius-xl);
+  font-weight: 700;
+  transition: background var(--transition-fast);
+}
+
+.btn-primary:hover {
+  filter: brightness(0.95);
+}
+
+.btn-secondary-soft {
+  background: var(--color-brand-100);
+  border-radius: var(--radius-xl);
+}
+
+
+/* ================== Inputs ================== */
+
+.input-field {
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  padding: 0.75rem 1rem;
+}
+
+.input-mini {
+  border: 1px solid var(--color-border-default);
+  border-radius: 8px;
+  padding: 6px;
+}
+
+
+/* ================== Range Slider ================== */
+
+.custom-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  background: var(--color-brand-600);
+  border-radius: 50%;
+}
+
+
+/* ================== Subject Card ================== */
+
+.subject-card {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-subject);
+}
+
+.subject-card input,
+.subject-card select {
+  flex: 1;
+  border: 1px solid var(--color-border-default);
+  border-radius: 8px;
+  padding: 6px;
+}
+
+
+/* ================== Utility Text Tokens ================== */
+
+.text-brand-900 {
+  color: var(--color-brand-900);
+}
+
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.text-muted-dark {
+  color: var(--color-text-muted-dark);
+}
+
+.text-orange-600 {
+  color: var(--color-orange-600);
+}
+
+/* ================= HEADER ================= */
+
+.header-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border-light);
+  transition: transform var(--transition-fast);
+}
+
+.header-hidden {
+  transform: translateY(-100%);
+}
+
+
+/* ================= FEATURE CARD ================= */
+
+.feature-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-3xl);
+  border: 1px solid var(--color-border-light);
+}
+
+
+/* ================= METRIC CARD ================= */
+
+.metric-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--color-border-light);
+}
+
+
+/* ================= FOOTER ================= */
+
+.footer {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border-light);
+}
